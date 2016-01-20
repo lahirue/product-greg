@@ -46,6 +46,25 @@
             </div>
         </div>
         <!-- /tags -->
+        <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTags">
+                <h2 class="sub-title panel-title">
+                    <a data-toggle="collapse" href="#collapseCategories" aria-expanded="false" aria-controls="collapseTags" class="collapsed">
+                        <span class="fw-stack">
+                            <i class="fw fw-ring fw-stack-2x"></i>
+                            <i class="fw fw-arrow fw-down-arrow fw-stack-1x"></i>
+                        </span>
+                        Categories
+                    </a>
+                </h2>
+            </div>
+            <div id="collapseCategories" class="panel-collapse collapse" aria-labelledby="headingCategories">
+                <div class="panel-body">
+                    {{> category-container . }}
+                </div>
+            </div>
+        </div>
+
 
         {{#hasAppPermission . key="GREG_COMMUNITY_FEATURES" username=cuser.username tenantId=cuser.tenantId}}
         <!-- notifications settings -->
