@@ -41,25 +41,41 @@ $(function () {
         formattedTags.push(formattedTag);
     }
 
+    $(document).ready(function(){
+        $('#tag-input-restrict .select2-search__field').keydown(function(e) {
+            if (e.keyCode == 191) {
+                e.preventDefault();
+                return false;
+            }
+        });
+    });
+
     $('#select-tags').select2({
         tags: true,
         placeholder: 'NO TAGS FOUND',
         data: tags,
         multiple: true,
-        cache: true
+        cache: true,
+        // remove auto suggestions results
+        formatNoMatches: function() {
+            return '';
+        },
+        //assign custom css to hide drop down
+        dropdownCssClass: 'select2-hidden-tags'
     }).on("select2:select", function (e) {
         var data = {};
         data.tags = e.params.data.text;
-        $.ajax({
-            url: caramel.context + '/apis/asset/' + store.publisher.assetId + '/add-tags?type=' + store.publisher.type,
-            type: 'POST',
-            async: false,
-            data: JSON.stringify(data),
-            contentType: 'application/json',
-            error: function () {
-                console.log("Error adding tags.");
-            }
-        });
+            $.ajax({
+                url: caramel.context + '/apis/asset/' + store.publisher.assetId + '/add-tags?type=' +
+                store.publisher.type,
+                type: 'POST',
+                async: false,
+                data: JSON.stringify(data),
+                contentType: 'application/json',
+                error: function () {
+                    console.log("Error adding tags.");
+                }
+            });
     }).on("select2:unselect", function (e) {
         var data = {};
         data.tags = e.params.data.text;

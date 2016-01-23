@@ -45,6 +45,7 @@ var resources = function(page, meta) {
     o.js.push('greg-page-api.js');
     o.js.push('notes-api.js');
     o.js.push('tags-container.js');
+    o.js.push('category-container.js');
     o.js.push('bootstrap-dialog.min.js');
     o.js.push('bootstrap-editable.js');
     o.js.push('bootstrap-multiselect.js');
