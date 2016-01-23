@@ -42,7 +42,7 @@ $(function () {
     }
 
     $(document).ready(function(){
-        $('.select2-search__field').keydown(function(e) {
+        $('#tag-input-restrict .select2-search__field').keydown(function(e) {
             if (e.keyCode == 191) {
                 e.preventDefault();
                 return false;

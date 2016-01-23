@@ -22,9 +22,11 @@ $(function () {
 
 
     $.ajax({
-        url: caramel.context + '/apis/asset/' + store.publisher.assetId + '/categories?type=' + store.publisher.type,
+        url: caramel.context + '/apis/asset/' + store.publisher.assetId + '/resetcategories?type=' +
+        store.publisher.type,
         type: 'GET',
         async: false,
+        contentType: 'application/json',
         success: function (response) {
             selectedCategories = response.data;
         },
@@ -35,10 +37,11 @@ $(function () {
 
     // Get admin defined categories related to an asset.
     $.ajax({
-        url: caramel.context + '/apis/asset/' + store.publisher.assetId + '/admincategories?type=' +
-        store.publisher.type,
+        url: caramel.context + '/apis/asset/' + store.publisher.assetId + '/resetcategories?type=' +
+        store.publisher.type + '&admincategory=true',
         type: 'GET',
         async: false,
+        contentType: 'application/json',
         success: function (response) {
             categories = response.data;
         },
@@ -57,7 +60,7 @@ $(function () {
         var data = {};
         data.category = e.params.data.text;
         $.ajax({
-            url: caramel.context + '/apis/asset/' + store.publisher.assetId + '/add-category?type=' +
+            url: caramel.context + '/apis/asset/' + store.publisher.assetId + '/resetcategories?type=' +
             store.publisher.type,
             type: 'POST',
             async: false,
@@ -74,7 +77,7 @@ $(function () {
         var data = {};
         data.category = e.params.data.text;
         $.ajax({
-            url: caramel.context + '/apis/asset/' + store.publisher.assetId + '/remove-category?type=' +
+            url: caramel.context + '/apis/asset/' + store.publisher.assetId + '/resetcategories?type=' +
             store.publisher.type,
             type: 'DELETE',
             contentType: 'application/json',
