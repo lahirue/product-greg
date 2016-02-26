@@ -88,7 +88,8 @@ public class RestServiceCRUDUITestCase extends GREGIntegrationUIBaseTest {
     @Test(groups = "wso2.greg", description = "Click and validate the asset", dependsOnMethods = "updateAsset")
     public void clickAndValidateAfterUpdate() {
         asset.clickOnGenericTypeAsset(uiElementMapper.getElement("publisher.restservices"), elementID);
-        asset.validateDetailsContentType("/" + uniqueName, uiElementMapper.getElement("publisher.general.context"));
+        // to validate context we can uncomment this
+       // asset.validateDetailsContentType("/" + uniqueName, uiElementMapper.getElement("publisher.general.context"));
         asset.validateDetailsContentType("desc" + uniqueName,
                 uiElementMapper.getElement("publisher.general.description"));
     }

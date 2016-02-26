@@ -159,8 +159,8 @@ public class PublisherUtil extends GREGIntegrationUIBaseTest {
         driver.findElement(By.id(uiElementMapper.getElement("publisher.asset.description"))).clear();
         driver.findElement(By.id(uiElementMapper.getElement("publisher.asset.description")))
                 .sendKeys("desc" + uniqueName);
-
-        if (uiElementMapper.getElement("publisher.soapservices").equals(serviceType)) {
+        // if we want to update namespace and context we can uncomment this
+      /*  if (uiElementMapper.getElement("publisher.soapservices").equals(serviceType)) {
             driver.findElement(By.id(uiElementMapper.getElement("publisher.asset.namespace"))).click();
             driver.findElement(By.id(uiElementMapper.getElement("publisher.asset.namespace"))).clear();
             driver.findElement(By.id(uiElementMapper.getElement("publisher.asset.namespace")))
@@ -169,9 +169,9 @@ public class PublisherUtil extends GREGIntegrationUIBaseTest {
             driver.findElement(By.id(uiElementMapper.getElement("publisher.asset.context"))).click();
             driver.findElement(By.id(uiElementMapper.getElement("publisher.asset.context"))).clear();
             driver.findElement(By.id(uiElementMapper.getElement("publisher.asset.context"))).sendKeys("/" + uniqueName);
-        }
+        }*/
 
-        driver.findElement(By.id("editAssetButton")).click();
+        driver.findElement(By.id(uiElementMapper.getElement("publisher.defaults.edit.button"))).click();
         assertTrue(isElementPresent(driver, By.id(uiElementMapper.getElement("publisher.defaults.collapse"))),
                 serviceType + " Not Updated for Test Case " +
                         className);
