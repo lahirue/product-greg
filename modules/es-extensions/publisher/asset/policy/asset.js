@@ -19,6 +19,7 @@ asset.manager = function(ctx) {
         var userRegistry = userMod.userRegistry(cSession);
         return userRegistry;
     };
+
     var delayTillIndexed = function(milliSec) {
         var date = Date.now();
         var curDate = null;
