@@ -215,7 +215,19 @@ asset.renderer = function(ctx) {
                 if (page.rxt && page.rxt.fileExtension) {
                     page.isContentType = true;
                 }
+            },
+            assetCombinedWithRXT: function(page){
+                if (page.assets && page.assets.type) {
+                    var user = server.current(ctx.session);
+                    if(user){
+                        var rxt = require('rxt');
+                        var am = rxt.asset.createUserAssetManager(ctx.session,page.assets.type);
+                        page.assetWithRxt = am.combineWithRxt(page.assets);
+                    }
+                }
             }
+
+
         }
     }
 };

@@ -21,24 +21,36 @@
     <div class="nano-content">
 
 
-        <nav class="navigation">
+        <nav class="navigation" >
 
             {{#with navigationBar}}
                 {{#if noTypeSelected}}
-                    <a href='{{tenantedUrl ""}}/pages/top-assets' id="all-assets"
+                    <!--     <a href='{{tenantedUrl ""}}/pages/top-assets' id="all-assets"
                        class="{{#if navigationBar.landingPage}} active home top-item {{else}} home all-item  {{/if}}">
                         <span class="icon"><i class="fw fw-success"></i></span> <span
                             class="left-menu-item">{{t "All"}}</span>
-                    </a>
-                    {{#each types}}
+                    </a>-->
+                    <!--  {{#each types}}
                         <a href='{{tenantedUrl ""}}{{this.listingUrl}}' id="{{this.shortName}}"
                            class="{{ui.iconColor}} {{this.style}}">
                             <span class="icon"><i class="{{ui.icon}}"></i></span> <span
                                 class="left-menu-item">{{pluralLabel}}</span>
                         </a>
-                    {{/each}}
+                    {{/each}}-->
+                    <select   id="e1" style="width:250px">
+                        <option selected="selected" value="All"><span class="icon"><i class="fw fw-success"></i></span> All</option>
+                        {{#each types}}
+                            {{#if this.selected}}
+                                <option  selected="selected"  data-href="{{tenantedUrl ""}}{{this.listingUrl}}" value="{{pluralLabel}}">{{pluralLabel}}</option>
+
+                            {{/if}}
+                            {{#unless this.selected}}
+                                <option  data-href="{{tenantedUrl ""}}{{this.listingUrl}}" value="{{pluralLabel}}">{{pluralLabel}}</option>
+                            {{/unless}}
+                        {{/each}}
+                    </select>
                 {{else}}
-                    {{#each types}}
+                    <!--{{#each types}}
                         {{#if this.selected}}
                             <a href='{{tenantedUrl ""}}{{this.listingUrl}}' id="{{this.shortName}}"
                                class="{{ui.iconColor}} {{this.style}}" data-selected="true">
@@ -64,7 +76,26 @@
                     {{/each}}
 
                     <a title="Show more" class="assets-show-more"><i class="fw fw-down"></i></a>
-                    <a title="Show less" class="assets-show-less" style="display: none;"><i class="fw fw-up"></i></a>
+                    <a title="Show less" class="assets-show-less" style="display: none;"><i class="fw fw-up"></i></a>-->
+
+                    <!--       {{#each types}}
+                        {{#if this.selected}}
+                    <div id="singularName" data-val="{{singularLabel}}" style="display: none;" > AAA</div>
+                        {{/if}}
+                    {{/each}}-->
+
+                    <select   id="e1" style="width:250px">
+                        <option  data-href="{{tenantedUrl ""}}/pages/top-assets" value="All"><span class="icon"><i class="fw fw-success"></i></span> All</option>
+                        {{#each types}}
+                            {{#if this.selected}}
+                                <option  selected="selected"  data-href="{{tenantedUrl ""}}{{this.listingUrl}}" value="{{pluralLabel}}">{{pluralLabel}}</option>
+
+                            {{/if}}
+                            {{#unless this.selected}}
+                                <option  data-href="{{tenantedUrl ""}}{{this.listingUrl}}" value="{{pluralLabel}}">{{pluralLabel}}</option>
+                            {{/unless}}
+                        {{/each}}
+                    </select>
                 {{/if}}
             {{/with}}
         </nav>
@@ -126,9 +157,6 @@
                                 value="{{searchQuery}}">
                         <span class="input-group-btn">
                            <button class="btn btn-secondary" id="search-button" type="button"><i class="fw fw-search" aria-hidden="true"></i></button>
-                        </span>
-                        <span class="input-group-addon search-options-link-wrapper es-input-group-btn" id="basic-addon2">
-                            {{>search-options-popover .}}
                         </span>
                     </div>
                 </div>

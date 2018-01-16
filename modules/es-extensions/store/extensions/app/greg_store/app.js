@@ -32,7 +32,7 @@ app.server = function(ctx) {
         	landingPage: '/pages/top-assets',
             disabledAssets: ['note', 'ebook','proxy','sequence','service','servicex','uri',
                              'site','provider','gadget','document','endpoint','topic','reply', 'server'],
-            title : "WSO2 Governance Center - Store"
+            title : "Metadata Portal - Store"
         }
     }
 };

@@ -12,6 +12,9 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 -->
+{{#if rxt.meta.isDependencyShown}}
+    {{> view-asset-top-common-addons-container }}
+{{/if}}
 
 <div class="container pull-right">
     <div class="col-sm-10 pull-right">
@@ -39,9 +42,7 @@
                         {{/if}}
                     {{/if}}
                 {{/if}}
-                {{#if rxt.meta.isDependencyShown}}
-                    {{> view-asset-top-common-addons-container }}
-                {{/if}}
+
                 {{#if assetVersions }}
                     {{#if rxt.meta.isDiffViewShown }}
                         {{> view-asset-diff-view-container .. }}

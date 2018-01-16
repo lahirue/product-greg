@@ -46,7 +46,7 @@ $(document).ready(function () {
 		$('#the-basics .typeahead').typeahead({
 				hint: true,
 				highlight: true,
-				minLength: 1
+				minLength: 0
 			},
 			{
 				name: 'history',
@@ -56,7 +56,14 @@ $(document).ready(function () {
 				source: substringMatcher(history),
 				templates: {
 					header: function (data) {
-						return '<div class="text-mute" style="padding-left:20px;border-bottom:1px solid #eee;margin-bottom:5px;padding-top:5px;">Search History</div>';
+						if (data.query) {
+                            return   '<div class="text-mute" style="padding-left:20px;border-bottom:1px solid #eee;margin-bottom:5px;padding-top:5px;"><b>tags: </b>rain</div>' +
+                                '<div class="text-mute" style="padding-left:20px;border-bottom:1px solid #eee;margin-bottom:5px;padding-top:5px;">Search History</div>';
+						} else {
+                            return   '<div class="text-mute" style="padding-left:20px;border-bottom:1px solid #eee;margin-bottom:5px;padding-top:5px;"><b>tags: </b>rain</div>';
+						}
+
+
 					},
 					suggestion: function (data) {
 						return '<p>' + data + '</p>';

@@ -45,8 +45,8 @@ app.server = function(ctx) {
             landingPage: '/pages/gc-landing',
             disabledAssets: ['ebook','proxy','sequence','service','servicex','uri',
                              'site','provider','gadget','document','endpoint','topic','reply', 'server'],
-            uiDisabledAssets: ['note'],
-            title : "WSO2 Governance Center - Publisher"
+            uiDisabledAssets: ['note','wsdl','policy','schema','wadl','swagger','soapservice'],
+            title : "Metadata Portal - Publisher"
         }
     }
 };

@@ -75,7 +75,7 @@ a.cu-btn-inner.inverse {
 }
 
 .wr-app-bar {
-    background: #2c313b;
+    background: #151922;
 }
 
 .wr-auth a {
@@ -88,7 +88,7 @@ a.cu-btn-inner.inverse {
 }
 
 .wr-global-header {
-    background: #161616;
+    background: #151922;
 }
 
 .wr-asset-type-switcher a.switcher-link {
@@ -588,7 +588,7 @@ a.btn.btn-default.input-group-addon {
     border-right: none;
 }
 #the-basics{
-    padding-left: 5px;
+    padding-left: 1px;
 }
 /*</Top button group in store artifact pages>*/
 
