@@ -1,4 +1,5 @@
 #WSO2 Governance Registry
+changes
 
 The Iconnectel WSO2 Governance Registry is a Registry and a Repository available under the
 Apache Software License v2.0 which provides the right level of structure
